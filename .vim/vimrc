@@ -1,16 +1,19 @@
 set nocompatible               " be iMproved
+filetype off                   " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
-"FIXME: the above is needed  when running BundleUpdate, comment out #rc.
 call vundle#rc()
+"call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
 " snippets triggers with chunks of code
 "Bundle 'UltiSnips'
 Bundle '2072/PHP-Indenting-for-VIm'
@@ -29,7 +32,8 @@ Bundle 'a.vim'
 Bundle 'CSApprox'
 " source code browser with tags in a panel (functions, variables, etc)
 Bundle 'taglist.vim'
-Bundle "pangloss/vim-javascript"
+" Bundle "pangloss/vim-javascript"
+Plugin 'isRuslan/vim-es6'
 "Bundle 'git://github.com/majutsushi/tagbar'
 "Bundle 'git://github.com/Townk/vim-autoclose.git'
 " align vertically elements on your code
@@ -45,6 +49,9 @@ Bundle 'echofunc.vim'
 Bundle 'ShowMarks7'
 " GIT powerful integration
 Bundle 'tpope/vim-fugitive'
+" Live with php standards
+Bundle 'stephpy/vim-php-cs-fixer'
+
 "Bundle 'Syntastic'
 " syntax (source code correctness) checker
 "Bundle 'scrooloose/syntastic.git'
@@ -102,6 +109,7 @@ Bundle 'git://github.com/chriskempson/base16-vim'
 set background=dark
 "colorscheme base16-default
 
+Bundle 'git://github.com/joedicastro/vim-molokai256'
 
 "Bundle 'git://github.com/myusuf3/numbers.vim'
 
@@ -181,6 +189,18 @@ let g:signify_sign_change            = 'm'
 let g:signify_sign_delete            = '_'
 let g:signify_sign_delete_first_line = '‾'
 
+
+" If you use php-cs-fixer version 2.x
+let g:php_cs_fixer_rules = "@PSR1,@PSR2"          " options: --rules
+" (default:@PSR2)
+" "let g:php_cs_fixer_cache = ".php_cs.cache" " options: --cache-file
+" "let g:php_cs_fixer_config_file = '.php_cs' " options: --config
+" " End of php-cs-fixer version 2 config params
+"
+let g:php_cs_fixer_php_path = "php"               " Path to PHP
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by
+let g:php_cs_fixer_dry_run = 0                    " Call command with
+let g:php_cs_fixer_verbose = 0                    " Return the output of
 
 "Bundle 'git://github.com/Shougo/neocomplete.vim'
 ""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -673,9 +693,11 @@ let maplocalleader = '"'
 " user-defined background tone, from 1 to 6, higher = lighter,
 " 0 is for have a transparent background
 " note: it needs to be set before the colorscheme call
-let g:badwolf_background = 1
-colorscheme elive
-"colorscheme maroloccio
+let g:badwolf_background = 3
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+"colorscheme elive
+colorscheme molokai256
 
 " by some reason i have it enabled by default, don't like, disable
 set nocul
