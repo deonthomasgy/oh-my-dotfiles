@@ -1,0 +1,833 @@
+set nocompatible               " be iMproved
+
+set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"FIXME: the above is needed  when running BundleUpdate, comment out #rc.
+call vundle#rc()
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+Bundle 'gmarik/vundle'
+" snippets triggers with chunks of code
+"Bundle 'UltiSnips'
+Bundle '2072/PHP-Indenting-for-VIm'
+
+Bundle 'git://github.com/SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Bundle 'git://github.com/honza/vim-snippets'
+""Bundle 'git://github.com/Elive/vim-bling'
+" faster motions to specific locations
+Bundle 'EasyMotion'
+" :MRU and open recent edited files
+Bundle 'mru.vim'
+" fast switch between header and source files
+Bundle 'a.vim'
+" helper for colorscheme in terminal vs gui
+Bundle 'CSApprox'
+" source code browser with tags in a panel (functions, variables, etc)
+Bundle 'taglist.vim'
+Bundle "pangloss/vim-javascript"
+"Bundle 'git://github.com/majutsushi/tagbar'
+"Bundle 'git://github.com/Townk/vim-autoclose.git'
+" align vertically elements on your code
+"Bundle 'Align'
+Bundle 'junegunn/vim-easy-align'
+Bundle 'git://github.com/godlygeek/tabular'
+" searcher of file contents integrated in vim
+Bundle 'ack.vim'
+" show the function declaration in the bar after to type the ( char
+Bundle 'echofunc.vim'
+" show visually your marks all the time
+" a future replacement (improved) may be: vim-signature
+Bundle 'ShowMarks7'
+" GIT powerful integration
+Bundle 'tpope/vim-fugitive'
+"Bundle 'Syntastic'
+" syntax (source code correctness) checker
+"Bundle 'scrooloose/syntastic.git'
+Bundle 'git://github.com/scrooloose/syntastic.git'
+" comment / uncomment blocks of code in any lang
+"Bundle 'The-NERD-Commenter'
+Bundle 'git://github.com/scrooloose/nerdcommenter'
+" autoload cscope.out database file for C files
+Bundle 'autoload_cscope.vim'
+" Blink when search
+Bundle 'git://github.com/Elive/vim-bling'
+" doxygen toolkit:
+"Bundle 'git@github.com:vim-scripts/DoxygenToolkit.vim.git'
+" colorscheme scroller
+"Bundle 'ScrollColors'
+"Bundle 'Color-Sampler-Pack' " moved to:
+" colorschemes collection DELETEME?
+"Bundle 'git://github.com/vim-scripts/Colour-Sampler-Pack'
+" defined a new verb/word of vim, for actions around elements like enclosing a word between '' or ()
+Bundle 'git://github.com/tpope/vim-surround'
+" insert mode: (faster than use Esc all the time for things like
+" movements)
+Bundle 'git://github.com/tpope/vim-rsi'
+" improved repeat '.' actions to include actions that was not worked by default
+Bundle 'repeat.vim'
+" This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically
+" based on the current file
+"Bundle 'git://github.com/tpope/vim-sleuth'
+
+" rate, favorite, browse colorschemes
+"Bundle 'git://github.com/biskark/vim-ultimate-colorscheme-utility'
+"
+" startup screen for vim, selecting last used files, buffers, filetree, etc
+" useless if we have nertree
+"Bundle 'git://github.com/mhinz/vim-startify'
+
+" colorscheme
+Bundle 'jellybeans.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'git://github.com/wgibbs/vim-irblack.git'
+Bundle 'git://github.com/nielsmadan/harlequin'
+Bundle 'git://github.com/Lokaltog/vim-distinguished'
+Bundle 'git://github.com/sjl/badwolf.git'
+Bundle 'twilight256.vim'
+" configure better: https://github.com/w0ng/vim-hybrid
+Bundle 'git://github.com/w0ng/vim-hybrid'
+" configure better: https://github.com/chriskempson/tomorrow-theme
+Bundle 'git://github.com/chriskempson/tomorrow-theme'
+Bundle 'git://github.com/morhetz/gruvbox'
+Bundle 'git://github.com/zeis/vim-kolor'
+Bundle 'git://github.com/Maroloccio/maroloccio-vim'
+" a nice looking theme similar to coderpad.io
+Bundle 'git://github.com/sickill/vim-monokai'
+Bundle 'git://github.com/chriskempson/base16-vim'
+set background=dark
+"colorscheme base16-default
+
+
+"Bundle 'git://github.com/myusuf3/numbers.vim'
+
+" multiediting multiuser VIM!
+Bundle 'git://github.com/FredKSchott/CoVim'
+
+" multiple cursors for edit like in sublimetext
+Bundle 'git://github.com/terryma/vim-multiple-cursors'
+" thumbnail of file like in sublimetext
+Bundle 'git://github.com/koron/minimap-vim'
+
+" ruby plugins:
+Bundle 'vim-ruby/vim-ruby'
+" https://github.com/vim-ruby/vim-ruby/wiki/VimRubySupport
+"
+" 16:40 < kaldrenon> wald0: nelstrom/vim-textobj-rubyblock and vim-ruby/vim-ruby are the two most useful ruby-specific plugins I have
+"
+
+" supertab is the best tab plugin imho, if you need to complete ctags just
+" use the plain <C-x><C-o> mode, by other side YouCompleteMe is more
+" interactive and it has fuzzy matching, but it uses a ton of memory and
+" looks ugly stuff, also it seems like it doesn't automatically completes the
+" last typed words like supertab which does it simply fantastic
+Bundle 'git://github.com/ervandew/supertab'
+"
+" YouCompleteMe: interactive autocompleter tool with fuzzy matching
+" Note: at the date of my test this plugin is consuming huge ram (if ctags
+" enabled), and it doesn't include 'last used words as prior', but it will
+" have a small rewrite so im not going to use it for now (switch back to
+" supertab), bug at:
+" https://github.com/Valloric/YouCompleteMe/pull/370
+"Bundle 'git://github.com/Valloric/YouCompleteMe'
+" ctags are very nice but uses huge mem, by other side this plugin is useless
+" without them
+"let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_add_preview_to_completeopt = 1
+" do not annoy at each time for this flags file
+"let g:ycm_confirm_extra_conf = 0
+let g:ycm_show_diagnostics_ui = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_auto_stop_csharp_server = 1
+
+" autocomplete for some languages only (ruby, python, xml, html, css), not
+" needed if you use YouCompleteMe
+"Bundle 'git://github.com/vim-scripts/L9'
+"
+"Bundle 'git://github.com/othree/vim-autocomplpop'
+
+
+
+
+
+"Testing:
+" Nice gist plugin
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+
+" GUndo, nice history list.
+Bundle 'sjl/gundo.vim'
+let g:gundo_right=1
+
+" Fuzzy file, buffer, mru, tag, etc finder.
+Bundle 'git://github.com/kien/ctrlp.vim'
+
+" gitk for vim
+Bundle 'git://github.com/gregsexton/gitv'
+
+" show signs for added/removed/modified parts when using a VCS/git
+Bundle 'git://github.com/mhinz/vim-signify'
+highlight SignifySignAdd    cterm=bold ctermfg=119
+highlight SignifySignDelete cterm=bold ctermfg=167
+highlight SignifySignChange cterm=bold ctermfg=227
+let g:signify_sign_add               = '+'
+let g:signify_sign_change            = 'm'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+
+
+"Bundle 'git://github.com/Shougo/neocomplete.vim'
+""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+"" Disable AutoComplPop.
+"let g:acp_enableAtStartup = 0
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplete#sources#syntax#min_keyword_length = 3
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+"" Define dictionary.
+"let g:neocomplete#sources#dictionary#dictionaries = {
+    "\ 'default' : '',
+    "\ 'vimshell' : $HOME.'/.vimshell_hist',
+    "\ 'scheme' : $HOME.'/.gosh_completions'
+        "\ }
+
+"" Define keyword.
+"if !exists('g:neocomplete#keyword_patterns')
+    "let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+  "return neocomplete#close_popup() . "\<CR>"
+  "" For no inserting <CR> key.
+  ""return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplete#close_popup()
+"inoremap <expr><C-e>  neocomplete#cancel_popup()
+"" Close popup by <Space>.
+
+""inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+"" For cursor moving in insert mode(Not recommended)
+""inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+""inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+""inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+""inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+"" Or set this.
+""let g:neocomplete#enable_cursor_hold_i = 1
+"" Or set this.
+""let g:neocomplete#enable_insert_char_pre = 1
+
+"" AutoComplPop like behavior.
+""let g:neocomplete#enable_auto_select = 1
+
+"" Shell like behavior(not recommended).
+""set completeopt+=longest
+""let g:neocomplete#enable_auto_select = 1
+""let g:neocomplete#disable_auto_complete = 1
+""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+"" Enable omni completion.
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+"" Enable heavy omni completion.
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+  "let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+""let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+""let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+""let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+"" For perlomni.vim setting.
+"" https://github.com/c9s/perlomni.vim
+"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#tags#cache_limit_size = '500000000'
+
+
+
+
+
+" Nerdtree {{{
+    Bundle 'scrooloose/nerdtree'
+    let NERDTreeIgnore=['\.pyc$', '\.orig$']
+
+    " NerdTreeTabs {{{
+                Bundle 'jistr/vim-nerdtree-tabs'
+                "map <F3> <plug>NERDTreeTabsToggle<CR>
+                "let g:nerdtree_tabs_open_on_console_startup=1
+                let g:nerdtree_tabs_focus_on_files=1
+                let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+                let g:NERDTreeWinSize = 22
+    " }}}
+" }}}
+
+" testing to generate automatically tags for projects:
+"Bundle 'git://github.com/xolox/vim-easytags'
+"Bundle 'git://github.com/szw/vim-tags'
+" dependency of previous one
+"Bundle 'git://github.com/xolox/vim-misc'
+" ruby textblock, type 'var' or 'vir' to see, http://www.vim.org/scripts/script.php?script_id=3382
+"Bundle 'git://github.com/nelstrom/vim-textobj-rubyblock'
+" dependency for the previous one
+"runtime macros/matchit.vim
+
+" powerline replacement
+Bundle 'git://github.com/bling/vim-airline'
+Plugin 'git://github.com/elzr/vim-json'
+
+
+" Locations push/pop stack:  Use zp for push and zP for pop
+Bundle 'git://github.com/tommcdo/vim-kangaroo.git'
+
+
+
+
+" TODO check in the future for: https://github.com/Lokaltog/vim-powerline/
+
+
+filetype plugin indent on     " required!
+" see :h vundle for more details or wiki for FAQ
+
+""""""""""""""""""" Old VIMRC """"""""""""""""""""""""""
+set modeline    " for automatic vim configurations from source files
+filetype plugin on
+set nocompatible  " use the power of vImproved
+:syntax on      " colors !
+:set ic  " ignore case
+:helptags ~/.vim/doc " dir for personal docs (:h thana)
+
+"An option that allows you to switch the buffer being displayed in the current
+"window without requiring that you save it first. This also allows you to keep
+"undo/redo history on multiple files. If you don't know whether or not you
+"want this option, you want it; it makes working with multiple files much more
+"reasonable. See also, :help 'hidden'
+:set hidden
+
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+" Uncomment the following to have Vim load indentation rules according to the
+" detected filetype. Per default Debian Vim only load filetype specific
+" plugins.
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+" Add EFL tags FIXME: to re-package
+":set tags=/usr/lib/tags/EFL.tags,/usr/lib/tags/E17.tags
+
+" The following are commented out as they cause vim to behave a lot
+" differently from regular Vi. They are highly recommended though.
+set showcmd             " Show (partial) command in status line.
+set showmatch           " Show matching brackets.
+set ignorecase          " Do case insensitive matching
+"set smartcase          " Do smart case matching
+set incsearch           " Incremental search
+set autowrite           " Automatically save before commands like :next and :make
+set hidden             " Hide buffers when they are abandoned
+set mouse=a            " Enable mouse usage (all modes) in terminals
+
+" TAB configurations (BAD & uncompatible):
+":set tabstop=3
+":set noet ts=3 sw=3 sts=3 smarttab
+
+" Tabs should be converted to a group of 4 spaces.
+" This is the official Python convention
+" (http://www.python.org/dev/peps/pep-0008/)
+" I didn't find a good reason to not use it everywhere.
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+"set smarttab
+set nosmarttab
+
+" show tabs and trails visually, trails are not a good thing for any code
+"set list
+"set lcs=tab:\ -,trail:~
+"set lcs=tab:\ \ ,trail:~
+" Automatically remove trailing whitespaces when saving files, this should be
+" done automatically and always required for any code
+" sed command:  find . type f -iname '*'.c -exec sed -i "s|[[:space:]]*$||g"
+" {} \; 
+"autocmd FileType c,cpp,java,php,sh autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType sh,ruby autocmd BufWritePre * :%s/\s\+$//e
+
+
+
+" out of graphical system mode, only 8 colors, made vim don't complain
+"if $TERM == "linux"
+    ":set t_Co=8
+"endif
+"if $TERM == "gnome-terminal"
+    ":set t_Co=256
+"endif
+"if $TERM == "xterm"
+    "":! export TERM=xterm-256color
+    ":set t_Co=256
+"endif
+"if $TERM == "xterm-256color"
+    ":set t_Co=256
+"endif
+"if $TERM == "rxvt-256color"
+    ":set t_Co=256
+"endif
+"if $TERM == "rxvt-unicode-256color"
+    ":set t_Co=256
+"endif
+
+
+"" Switch editing files with F2 and F3
+map <F2> :previous<cr>
+map <F3> :next<cr>
+" F4 shows us a list of editing files which we can switch to
+nnoremap <F4> :buffers<CR>:buffer<space>
+
+" Autocomplete already-existing words in the file with tab (extremely useful!)
+" FIXME change this function to handle / words in order to autocomplete addresses, or also control+/, maybe supertab handles it with a simple conf
+" Note: this is replaced by supertab which is better and seems to give the
+" same featuret
+"function InsertTabWrapper()
+"      let col = col('.') - 1
+"      if !col || getline('.')[col - 1] !~ '\k'
+"          return "\<tab>"
+"      else
+"          return "\<c-p>"
+"      endif
+"endfunction
+"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+
+" Show the ugly M$ buggy newlines in order to avoid errors because of them
+:set ffs=unix
+" remove ^M from EOL, we can also use "dos2unix" tool to apply to the files
+"nnoremap <C-M> <Esc>:%s:
+"::<CR>
+
+" visualize multiple matches when searching
+:set hlsearch
+
+" Permanent and infinite undo history (undelete) for even closed files
+" WARNING: This option is disabled by default because it is dangerous:
+" use it only if you always have control-revisioned sources, because a
+" strange combination of keys in vim can make your source files modified
+" unrecoverable
+" disabled by default
+"set undofile  
+set undodir=~/.vim/undo_history
+
+" Automatically set a mark of our cursor in our parents window switching
+:au WinLeave * set cursorline cursorcolumn
+:au WinEnter * set nocursorline nocursorcolumn
+:au VimResized * set nocursorline nocursorcolumn
+:au TabEnter * set nocursorline nocursorcolumn
+" Force use of column and line hilighting (disable previous ones)
+":set cuc cul
+
+" By default we should able to paste mouse contents as how exactly they are
+:set nopaste
+
+" Addition of dir UltiSnips for our vim dir (ultisnips plugin, bzr pull for
+" update it)
+"set runtimepath+=~/.vim/ultisnips_rep
+"" Configurations for UltiSnips
+":helptags ~/.vim/ultisnips_rep/doc/
+let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+
+let g:vim_json_syntax_conceal = 0
+
+" WARNING XXX this option breaks xterm-256+terminology mode (you cannot use
+" backspace, normal erase mode, which is ^h)
+" default is c-k
+"let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+
+"i dont have found a better one to use with terminology so let's use this one
+"for now
+let g:UltiSnipsListSnippets="<c-u>"
+":inoremap <silent> <c-b> <C-R>=UltiSnips_ListSnippets()<cr>
+":snoremap <silent> <c-b> <Esc>:call UltiSnips_ListSnippets()<cr>
+
+
+let javascript_enable_domhtmlcss = 1
+let g:javascript_conceal = 1
+
+
+" testing feature:
+"let g:UltiSnipsSnippetDirectories=["thanasnippets", "UltiSnips"]
+"let g:UltiSnipsSnippetsDir=["~/.vim/thanasnippets"] " not working, so using
+"default dir instead of thanasnippets
+
+" disable visualization of showmarks7 by default
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVXYZ"
+let g:showmarks_textlower="'"
+let g:showmarks_textupper="'"
+
+
+" Toggle folding column
+nnoremap <silent> <F7> :call FoldColumnToggle()<CR>
+
+function! FoldColumnToggle()
+	 if &foldcolumn
+        setlocal foldcolumn=0
+    else
+        setlocal foldcolumn=4
+    endif
+endfunction
+
+" Toggle numbers
+nnoremap <silent> <F5> :call NumberToggle()<CR>
+"nnoremap <F5> :NumberToggle<CR>
+
+" Toggle synastic
+nnoremap <F9> :SyntasticToggleMode<CR>
+nnoremap <F10> :UltiSnipsEdit<CR>
+
+
+" Compile / Make / check:
+" Syntastic - code syntax checker
+" Note: Do not enable the "statusline" ones because it disables some features
+" in vim like the visualization of the filename, line number, etc
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+" Show error messages (instead to need to call :Errors)
+let g:syntastic_enable_signs=1
+" with this, you can also navigate by 'enter' in the error message line
+let g:syntastic_auto_loc_list=1
+
+" Set some styles:
+let g:syntastic_error_symbol='E-'
+let g:syntastic_warning_symbol='W-'
+let g:syntastic_style_error_symbol='SE'
+let g:syntastic_style_warning_symbol='SW'
+
+" Do not do checks when we are closing the file
+"let g:syntastic_check_on_wq=0
+
+" Use bash checkers for bash scripts, instead of checkbashims
+let g:syntastic_sh_checkers = ['sh']
+
+" See the original source code of the checker in syntastic to know more about
+" those options:
+"let g:syntastic_c_check_header = 1
+"let g:syntastic_c_no_include_search = 1
+" additional compiler options
+"let g:syntastic_c_compiler_options = ' -Wall'
+"let g:syntastic_c_include_dirs = [ '/usr/include/eina-1', '/usr/include/evas-1' ]
+"let g:syntastic_c_compiler_options = ' `pkg-config --cflags --libs eina eet evas ecore edbus efreet embryo edje emotion enlightenment elementary` '
+"let g:syntastic_c_checker="make"
+let g:syntastic_c_checkers = ['make']
+" Disable checking of html files because the ton of errors, run it explicitly
+" with  :SyntasticCheck
+let syntastic_mode_map = { 'passive_filetypes': ['html', 'text'] }
+" do not run syntastic if we use ':wq' (fast-editing of files)
+":noremap :wq :au! syntastic<cr>:wq
+
+" Automatically run 'make install' when the file is saved
+"autocmd FileType c autocmd BufWritePost * !make install 1>/dev/null
+"autocmd BufWritePost * !make install
+"
+"that means pressing enter saves the file then runs a command in the shell (% is the current filename) - or it is <CR> for next command ?
+" :map <CR>  :w\|!some_make_command %<CR>
+"
+" alt+n or alt+p to navigate between entries in QuickFix
+" see :h quickfix, its a good feature for save the time of edit-compile-edit
+map <silent> <M-p> :cp <CR>
+map <silent> <M-n> :cn <CR>
+
+nnoremap <F8> :call QuickfixToggle()<cr>
+
+
+let g:quickfix_is_open = 0
+
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+    else
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+
+
+
+
+" Show syntax highlighting groups for word under cursor (crtl+shift+p)
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+set showmatch     " Show matching brackets.
+set mat=5         " Bracket blinking.
+
+" F5 Toggle spell check
+"map <F5> <Esc>:setlocal spell spelllang=en_us<CR>
+"map <S-F5> <Esc>:setlocal nospell<CR>
+
+" F6 opens buffer explorer side panel
+"nnoremap <silent> <F6> :TagbarToggle<CR>
+nnoremap <silent> <F6> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1     " exit vim if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer (editing file)
+let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+let Tlist_Use_SingleClick = 1	    " allow to jump with a single click instead of 2
+let Tlist_Inc_Winwidth = 0			 " do not increase the width
+
+" ack.vim
+"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+"let g:ackprg="ack-grep\\ -H\\ --nocolor\\ --nogroup"
+
+" when Control+l is pressed (redraw screen), remove the hilighted searches
+noremap <silent> <C-l> :noh<CR><C-l>
+
+" Switch to working directory of open file
+" WARNING: breaks :Gdiff of vim-fugitive, also see autochdir
+"autocmd BufEnter * lcd %:p:h
+
+" Always use UTF-8
+set encoding=utf-8
+
+"" Minimal number of screen lines to keep above and below the cursor.
+set scrolloff=11
+
+
+" Status line
+set laststatus=2
+set statusline=
+set statusline+=%-3.3n\                      " buffer number
+set statusline+=%f\                          " filename
+set statusline+=%h%m%r%w                     " status flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
+set statusline+=%=                           " right align remainder
+"set statusline+=0x%-8B                       " character value
+set statusline+=%-14(%l,%c%V%)               " line, character
+set statusline+=%<%P                         " file position
+" add fugitive statusline
+set statusline+=%{fugitive#statusline()}
+
+" Show line number, cursor position.
+set ruler
+
+" Display incomplete commands.
+set showcmd
+
+" faster scrolling
+:nnoremap <c-e> 3<c-e>
+:nnoremap <c-y> 3<c-y>
+
+" shortcut for enclose words between "" by just calling it 
+:nmap "" csW"
+:nmap '' csW'
+
+" shorcut for add \ before any other character, in normal mode, if is pressed
+" 2 times
+:nmap \\ i\<Esc>l
+" upper case a word: gUiw
+
+" set 'leader key' to something better for me
+let mapleader = ","
+let maplocalleader = '"'
+
+" My nice elive-powered colorscheme, da best of da world (2 times? aparently
+" needed)
+":colorscheme seoul
+":colorscheme seoul
+":colorscheme twilight256
+
+" user-defined background tone, from 1 to 6, higher = lighter,
+" 0 is for have a transparent background
+" note: it needs to be set before the colorscheme call
+let g:badwolf_background = 1
+colorscheme elive
+"colorscheme maroloccio
+
+" by some reason i have it enabled by default, don't like, disable
+set nocul
+"
+"pick a colorschemes randomly at startup
+"let schemes = 'badwolf gruvbox harlequin jellybeans twilight256 solarized hybrid-light hybrid ir_black kolor advantage badwolf brookstream codeschool dante dw_purple getafe_cippp github grb256 herald maroloccio3 matrix molokai moria neme1 nightflight nightsky railscasts redblack revolutions samus seoul _twilight256 vibrantink vividchalk wombat xoria256 spaceCadet distinguished Tomorrow-Night-Bright maroloccio'
+"let seconds = str2nr(strftime('%S'))
+"execute 'colorscheme '.split(schemes)[seconds%41]
+"execute 'colorscheme'
+
+let g:ulti_color_always_random = 2
+
+
+
+
+
+" airline confs
+" use powerline fonts since we have them in elive
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme = 'bubblegum'
+
+
+" Use CTRL-S for saving, also in Insert mode
+"noremap <C-S> :update<CR>
+"vnoremap <C-S> <C-C>:update<CR>
+"inoremap <C-S> <C-O>:update<CR>
+
+"Show Trailing Whitespace and spaces before tabs 
+hi link localWhitespaceError Error
+au Syntax * syn match localWhitespaceError /\(\zs\%#\|\s\)\+$/ display
+au Syntax * syn match localWhitespaceError / \+\ze\t/ display
+"au Syntax * syn match localWhitespaceError /\t/ display
+
+" like ZZ, QQ does :qa, useful for when editing multiple files (vim *.c) and
+" you want to avoid the warning message when quitting vim saying that you have
+" not finished to edit all the files and loses your time doing mulitple :q's
+map QQ :qa!<CR>
+"map WW :wa!<CR>
+
+" fold with { blocks for .src (eet) files
+if filereadable("/usr/share/vim-plugin-edc/ftplugin/edc.vim")
+    au BufRead,BufNewFile *.src set filetype=edc
+endif
+
+autocmd BufEnter,BufRead *.src set foldmethod=indent
+
+"
+" leader + r  runs the ruby script
+if !exists("g:ruby_command")
+    let g:ruby_command = "ruby"
+endif
+
+function! RubyCompileAndRunFile()
+    silent !clear
+    execute "silent !" . g:ruby_command . " " . bufname("%")
+    redraw!
+endfunction
+
+" nice thing: it doesn't require to save the file to run it (syntastic
+" slowness)
+nnoremap <buffer> <localleader>r :call RubyCompileAndRunFile()<cr>
+nnoremap <F11> :call RubyCompileAndRunFile()<CR>
+"
+"
+
+" force save (sudo root saving)
+command W w !sudo tee % > /dev/null
+
+
+" let's try more tabs better...
+" info: http://vim.wikia.com/wiki/Indenting_source_code
+" UPDATES of stability: 
+" 1- seems like 'expandtab' brokes some codes like the scripts in live build
+" (== comand changes original spacing), so i disable it for now and see what
+" happens with the rest
+"set expandtab
+"set shiftwidth=4
+"set softtabstop=4
+"autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2
+"autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
+"disable arrow keys for faster learn moving 
+"noremap  <Up> ""
+"noremap! <Up> <Esc>
+"noremap  <Down> ""
+"noremap! <Down> <Esc>
+"noremap  <Left> ""
+"noremap! <Left> <Esc>
+"noremap  <Right> ""
+"noremap! <Right> <Esc>
+""Another way:
+" disable arrow keys
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
+
+" store cache files in a fixed place, not flood the system:
+set directory^=~/.cache/swapfiles/
+
+set modeline
+" let vim set the window title
+set title
+
+" alternative to Esc, can be typed much faster
+":inoremap kj <Esc>
+":onoremap kj <Esc>
+":vnoremap kj <Esc>
+":nnoremap kj <Esc>:
+":inoremap lkj <Esc>: " I never remember to use it, but i do a lot of typos
+"having it enabled
+":nnoremap lkj <Esc>:
+
+" disable temporally esc in insert mode, until you are used to the new hotkey
+" Warning: this option gives lots of problems, dont use it
+":inoremap <Esc> <Nop>
+
+
+"====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+
+    exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+    set list
+
+" Move cursor between visual lines on screen
+nnoremap <Up> gk
+nnoremap <Down> gj
+
+" my keymap makes difficult to type :w
+:cabbrev & <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'w' : '&')<CR>
+:cabbrev > <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'x' : '>')<CR>
+:cabbrev % <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'v' : '%')<CR>
+
+"" automatic alignment for | matches after to have previously aligned it
+"" enable if you need it or found handy
+"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+"function! s:align()
+  "let p = '^\s*|\s.*\s|\s*$'
+  "if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    "let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    "let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    "Tabularize/|/l1
+    "normal! 0
+    "call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  "endif
+"endfunction
+
+
+" vim: foldmarker={{{,}}} foldlevel=0 foldmethod=marker
