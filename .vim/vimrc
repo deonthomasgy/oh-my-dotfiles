@@ -121,7 +121,7 @@ Bundle 'git://github.com/joedicastro/vim-molokai256'
 "Bundle 'git://github.com/myusuf3/numbers.vim'
 
 " multiediting multiuser VIM!
-Bundle 'git://github.com/FredKSchott/CoVim'
+"Bundle 'git://github.com/FredKSchott/CoVim'
 
 " multiple cursors for edit like in sublimetext
 Bundle 'git://github.com/terryma/vim-multiple-cursors'
