@@ -859,4 +859,6 @@ nnoremap <Down> gj
 "endfunction
 
 
+let tlist_php_settings='php;f:function;c:classes;i:interfaces' 
+
 " vim: foldmarker={{{,}}} foldlevel=0 foldmethod=marker
