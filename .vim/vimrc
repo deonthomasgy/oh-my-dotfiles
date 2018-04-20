@@ -135,7 +135,8 @@ Bundle 'vim-ruby/vim-ruby'
 "
 " 16:40 < kaldrenon> wald0: nelstrom/vim-textobj-rubyblock and vim-ruby/vim-ruby are the two most useful ruby-specific plugins I have
 "
-
+Plugin 'avakhov/vim-yaml'
+Plugin 'Yggdroot/indentLine'
 " supertab is the best tab plugin imho, if you need to complete ctags just
 " use the plain <C-x><C-o> mode, by other side YouCompleteMe is more
 " interactive and it has fuzzy matching, but it uses a ton of memory and
