@@ -70,7 +70,9 @@ Bundle 'git://github.com/scrooloose/nerdcommenter'
 Bundle 'autoload_cscope.vim'
 " Blink when search
 Bundle 'git://github.com/Elive/vim-bling'
+
 Bundle 'cespare/vim-toml'
+Bundle 'jwalton512/vim-blade'
 " doxygen toolkit:
 "Bundle 'git@github.com:vim-scripts/DoxygenToolkit.vim.git'
 " colorscheme scroller
