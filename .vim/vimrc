@@ -25,6 +25,9 @@ Plugin 'posva/vim-vue'
 "Bundle 'UltiSnips'
 Bundle '2072/PHP-Indenting-for-VIm'
 
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'docker/docker'
+
 Bundle 'git://github.com/SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'git://github.com/honza/vim-snippets'
