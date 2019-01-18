@@ -15,6 +15,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Vue syntax
 Plugin 'posva/vim-vue'
 
+Plugin 'tpope/vim-liquid'
+Bundle "lepture/vim-jinja"
+
 " Brief help
 " :BundleList          - list configured bundles
 " :BundleInstall(!)    - install(update) bundles
